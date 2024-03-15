@@ -1,26 +1,10 @@
 import express from "express";
-import User from "../models/user.model.js";
-import asyncHandler from "express-async-handler";
+import { getUser, addUser } from "../controllers/userControllers.js"
 
 const router = express.Router();
 
-router.route('/').get((req, res) => {
-    User.find()
-        .then(users => res.json(users))
-        .catch(err => res.status(400).json('Error:' + err));
+router.route('/').get(getUser);
 
-});
-
-router.route('/add').post((req, res) => {
-
-    const username = req.body.username;
-
-    const newUser = new User({ username });
-
-    newUser.save()
-        .then(() => res.json('User added!'))
-        .catch(err => res.status(400).json("Error:" + err));
-
-});
+router.route('/add').post(addUser);
 
 export default router;
