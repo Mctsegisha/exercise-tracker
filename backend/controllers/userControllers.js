@@ -15,7 +15,6 @@ const getUser = asyncHandler(async (req, res) => {
     }
 })
 
-
 const addUser = asyncHandler(async (req, res) => {
     try {
         const username = req.body.username;
@@ -33,16 +32,12 @@ const addUser = asyncHandler(async (req, res) => {
         } else {
             res.status(400);
             throw new Error("Invalid Data")
-
         }
-
 
     }
     catch (error) {
         throw new Error(error)
     }
-
-
 })
 
 export { getUser, addUser }

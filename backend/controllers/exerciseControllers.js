@@ -1,7 +1,6 @@
 import Exercise from "../models/exercise.model.js";
 import asyncHandler from "express-async-handler";
 
-
 const getExercise = asyncHandler(async (req, res) => {
     try {
         const exercise = await Exercise.find()
@@ -15,7 +14,6 @@ const getExercise = asyncHandler(async (req, res) => {
         throw new Error(error)
     }
 })
-
 
 const addExercise = asyncHandler(async (req, res) => {
     try {
@@ -39,17 +37,11 @@ const addExercise = asyncHandler(async (req, res) => {
                 description: exercise.description,
                 duration: exercise.duration,
                 date: exercise.date
-
-
-
-
             });
         } else {
             res.status(400);
             throw new Error("Invalid Data")
-
         }
-
     }
     catch (error) {
         throw new Error(error)
