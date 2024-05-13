@@ -21,7 +21,7 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-app.use('/execises', exerciseRoutes);
+app.use('/exercises', exerciseRoutes);
 app.use('/users', userRoutes);
 
 app.listen(
